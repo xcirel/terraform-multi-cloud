@@ -1,0 +1,8 @@
+# Ignore files or folders starting with "credentials"
+credentials*
+
+# Ignore files or folders named exactly "credentials"
+/credentials
+
+# Ignore files or folders inside a folder named "credentials"
+/credentials/**
