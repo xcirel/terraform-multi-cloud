@@ -12,12 +12,10 @@ resource "azurerm_storage_account" "first_storage_account_iac" {
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
 
-  tags = {
-    environment = local.common_tags
-  }
+  tags =  local.common_tags
 }
 
 resource "azurerm_storage_container" "first_container_iac" {
-  name                  = ""
+  name                  = "imagens"
   storage_account_name  = azurerm_storage_account.first_storage_account_iac.name
 }
