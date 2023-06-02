@@ -1,8 +1,9 @@
-Para criar um par de chaves digite
+To create a keypair 
 
 ```sh
 ssh-keygen -f azure-key-terraform
 ```
 
-Como eu precisava ter um resource group, fiz essa tarefa em duas etapas sendo
-- Criar um resurouce group
+How I need to have a resource group, made this task in two steps
+- Created a resource group
+- I created a VM and maintained the resource group block (observe here the idempotence)
