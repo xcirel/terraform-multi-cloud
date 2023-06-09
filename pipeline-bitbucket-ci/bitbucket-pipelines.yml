@@ -1,0 +1,36 @@
+pipelines:
+  branches:
+    # Configurar as branches desejadas para a execução da pipeline
+
+    # Configuração da branch master
+    main:
+      - step:
+          name: Validate
+          image: hashicorp/terraform
+          script:
+            - terraform init
+            - terraform validate
+
+      - step:
+          name: Plan
+          image: hashicorp/terraform
+          script:
+            - terraform init
+            - terraform plan -out=plan.out
+          artifacts:
+            - plan.out           
+
+      - step:
+          name: Apply
+          image: hashicorp/terraform
+          script:
+            - terraform init
+            - terraform apply plan.out
+
+      - step:
+          name: Destroy
+          image: hashicorp/terraform
+          script:
+            - terraform init
+            - terraform destroy -auto-approve
+          trigger: manual
