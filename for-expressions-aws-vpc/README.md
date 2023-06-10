@@ -170,8 +170,7 @@ subnet_id = [
 ]
 ```
 
-[![See](../_images/for-expressions-aws-vpc.png)](../_images/for-expressions-aws-vpc.png){:target="_blank"}
-
+!(../_images/for-expressions-aws-vpc.png)
 
 
 Reference: [Working with For Expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
