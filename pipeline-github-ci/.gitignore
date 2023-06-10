@@ -1,0 +1,10 @@
+.vscode/
+.terraform/
+*.backup
+*.hcl
+*.tfvars
+*.tfstate
+*.out
+*.out*.into
+azure-key*
+aws-key*
