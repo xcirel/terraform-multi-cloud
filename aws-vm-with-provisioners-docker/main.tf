@@ -3,14 +3,14 @@ terraform {
 
   required_providers {
     aws = {
-      version = "3.73.0"
+      version = "5.1.0"
       source  = "hashicorp/aws"
     }
   }
 
   backend "s3" {
     bucket = "ericsantos-remote-state"
-    key    = "aws-vm/terraform.tfstate"
+    key    = "aws-vm-provisioners-docker/terraform.tfstate"
     region = "us-east-1"
   }
 }
