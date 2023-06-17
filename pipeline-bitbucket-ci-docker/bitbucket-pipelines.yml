@@ -1,0 +1,50 @@
+pipelines:
+  branches:
+    # Configurar as branches desejadas para a execução da pipeline
+
+    # Configuração da branch master
+    main:
+      - step:
+          name: Validate
+          image: hashicorp/terraform
+          script:
+            - ssh-keygen -q -N "" -f aws-key-terraform
+            - ls -la                     
+            - terraform init
+            - terraform validate         
+          artifacts:
+            - aws-key-terraform.pub
+            - aws-key-terraform
+
+      - step:
+          name: Plan
+          image: hashicorp/terraform
+          script:
+            - ls -lah          
+            - terraform init
+            - terraform plan -out=plan.out
+          artifacts:
+            - plan.out     
+            - aws-key-terraform.pub
+            - aws-key-terraform      
+
+      - step:
+          name: Apply
+          image: hashicorp/terraform
+          script:
+            - ls -lah             
+            - terraform init
+            - terraform apply plan.out
+          artifacts:
+            - aws-key-terraform.pub
+            - aws-key-terraform
+          after-script:
+            - echo "Save your key pair to connect on your EC2 instance"
+            
+      - step:
+          name: Destroy
+          image: hashicorp/terraform
+          script:
+            - terraform init
+            - terraform destroy -auto-approve
+          trigger: manual
