@@ -22,3 +22,47 @@ export ARM_TENANT_ID="xxxxx"
 export ARM_SUBSCRIPTION_ID="xxxxx"
 export ARM_CLIENT_SECRET="xxxxx"
 ```
+
+
+
+## Terraform (comandos comuns))
+
+```bash
+terraform init
+terraform providers
+```
+
+Para formatar a identação do código, execute o comando:
+
+```bash
+terraform fmt
+```
+
+Para validar o código, execute o comando:
+
+```bash
+terraform validate
+```
+
+Para visualizar as alterações que serão realizadas, execute o comando:
+
+```bash
+terraform plan
+terraform plan --out plan.out # Salvar o plano em um arquivo
+```
+
+Para visualizar o conteúdo do arquivo de plan, execute o comando:
+
+```bash
+terraform show plan.out
+```
+
+Para aplicar as alterações, execute o comando:
+
+```bash
+terraform apply
+terraform apply plan.out # Aplicar o plano salvo
+terraform apply -auto-approve # Aplicar sem precisar confirmar, ideal para utilizar em pipelines
+```
+
+
