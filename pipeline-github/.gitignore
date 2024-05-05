@@ -1,0 +1,30 @@
+# Arquivos e diretórios do Terraform
+.terraform/
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+*.tfplan
+*.tfo
+
+# Arquivos de log
+crash.log
+terraform.log
+
+# Chaves SSH e chaves de API
+*.pem
+*.pub
+*.key
+id_rsa
+id_ecdsa
+id_ed25519
+*.ovpn
+*.credentials
+*.token
+
+# Arquivos e diretórios comumente ignorados
+.DS_Store
+*.bak
+*.swp
+*.tmp
+*.temp
